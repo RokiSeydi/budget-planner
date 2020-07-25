@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+    <title>Budget Planner</title>
+    <style>
+        h2,
+        p {
+            margin: 10px 0;
+        }
+        
+        header {
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body class="indigo">
+
+    <header class="indigo darken-1 section">
+        <h2 class="center white-text">Budget Planner</h2>
+        <p class="flow-text grey-text center text-lighten-2">Monthly money tracker</p>
+    </header>
+
+    <div class="container section">
+        <div class="row">
+            <div class="col s12 m6">
+                <form class="card z-depth-0">
+                    <div class="card-content">
+                        <span class="card-title indigo-text">Add Item:</span>
+                        <div class="input-field">
+                            <input type="text" id="name">
+                            <label for="name">Item Name</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="cost">
+                            <label for="name">Item Cost (£)</label>
+                        </div>
+                        <div class="input-field center">
+                            <button class="btn-large pink white-text">Add Item</button>
+                        </div>
+                        <div class="input-field center">
+                            <p class="red-text" id="error"></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col s12 m5 push-m1">
+                <div class="canvas"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-firestore.js"></script>
+
+<script defer>
+    const Config = {
+        apiKey: "AIzaSyC5TpqSpG-g940qIVapaVZRskIRePcKhOI",
+        authDomain: "budget-planner-7865e.firebaseapp.com",
+        databaseURL: "https://budget-planner-7865e.firebaseio.com",
+        projectId: "budget-planner-7865e",
+        storageBucket: "budget-planner-7865e.appspot.com",
+        messagingSenderId: "359196116841",
+        appId: "1:359196116841:web:da26b856ffeb40a964dff8",
+        measurementId: "G-R9Y5BDEJK0"
+    };
+
+    firebase.initializeApp(Config);
+    const db = firebase.firestore();
+    // const settings = {
+    //     timestampsInSnapshots: true
+    // };
+    // db.settings(settings);
+</script>
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="index.js"></script>
+<script src="graph.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</html>
